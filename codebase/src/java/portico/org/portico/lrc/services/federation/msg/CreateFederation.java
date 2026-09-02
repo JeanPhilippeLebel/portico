@@ -40,6 +40,7 @@ public class CreateFederation extends PorticoMessage
 	private transient List<URL> fomModules;
 	private transient URL mimModule;
 	private ObjectModel objectModel;
+	private String timeImplementationName;
 
 	//----------------------------------------------------------
 	//                      CONSTRUCTORS
@@ -115,6 +116,16 @@ public class CreateFederation extends PorticoMessage
 	public URL getMimModule()
 	{
 		return this.mimModule;
+	}
+
+	public String getTimeImplementationName()
+	{
+		return this.timeImplementationName;
+	}
+
+	public void setTimeImplementationName( String timeImplementationName )
+	{
+		this.timeImplementationName = timeImplementationName;
 	}
 
 	//----------------------------------------------------------

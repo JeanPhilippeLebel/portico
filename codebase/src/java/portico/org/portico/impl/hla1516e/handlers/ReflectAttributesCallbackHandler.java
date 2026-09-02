@@ -21,7 +21,8 @@ import java.util.Map;
 
 import static org.portico.impl.hla1516e.types.HLA1516eTransportationTypeHandleFactory.*;
 
-import org.portico.impl.hla1516e.types.time.DoubleTime;
+import hla.rti1516e.LogicalTime;
+import org.portico.impl.hla1516e.types.time.TimeUtils;
 import org.portico.impl.hla1516e.types.HLA1516eAttributeHandleValueMap;
 import org.portico.impl.hla1516e.types.HLA1516eHandle;
 import org.portico.lrc.PorticoConstants;
@@ -87,7 +88,7 @@ public class ReflectAttributesCallbackHandler extends HLA1516eCallbackHandler
 			                                 request.getTag(),          // tag
 			                                 OrderType.TIMESTAMP,       // sent order
 			                                 RELIABLE,                  // transport
-			                                 new DoubleTime(timestamp), // time
+			                                 TimeUtils.makeTime(timestamp,lrcState.getTimeImplementationName()), // time
 			                                 OrderType.TIMESTAMP,       // received order
 			                                 supplement );              // supplemental reflect info
 		}
