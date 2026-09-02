@@ -15,7 +15,6 @@
 package org.portico.impl.hla1516e;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -370,13 +369,8 @@ public class Rti1516eAmbassador implements RTIambassador
 		///////////////////////////////////////////////////////
 		// 1. create the message and pass it to the LRC sink //
 		///////////////////////////////////////////////////////
-		// jam the MIM in at the front of the list of modules
-		ArrayList<URL> moduleList = new ArrayList<URL>();
-		moduleList.add( mimModule );
-		for( URL module : fomModules )
-			moduleList.add( module );
-
-		CreateFederation request = new CreateFederation( federationName, moduleList );
+		CreateFederation request = new CreateFederation( federationName, fomModules );
+		request.setMimModule( mimModule );
 		ResponseMessage response = processMessage( request );
 
 		////////////////////////////
